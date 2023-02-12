@@ -32,7 +32,7 @@ const verifyTokenAndAuthorization = (req, res, next) => {
 
 const verifyTokenAndAdmin = (req, res, next) => {
   verifyToken(req, res, () => {
-    if(rreq.user.isAdmin){
+    if(req.user.isAdmin){
       next();
     }else{
       res.status(403).json({
