@@ -17,3 +17,16 @@ module.exports.update = async (req, res) => {
   }
 
 }
+
+module.exports.remove = async (req, res) => {
+  try{
+
+    await User.findByIdAndRemove(req.params.id);
+    res.status(200).json('user has been deleted...')
+
+  }catch(err){
+    res.status(500).json({
+      errors: ['error']
+    })
+  }
+}
