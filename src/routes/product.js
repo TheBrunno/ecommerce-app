@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 const { verifyToken, verifyTokenAndAuthorization, verifyTokenAndAdmin } = require('../middleware/verifyToken');
-const { create, update, remove, show, index, stats } = require('../controller/product');
+const { create, update, remove, show, index } = require('../controller/product');
 
 router.post('/', verifyTokenAndAdmin, create);
 router.put('/:id', verifyTokenAndAdmin, update);

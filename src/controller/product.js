@@ -1,7 +1,7 @@
 const Product = require('../models/Product');
 
 module.exports.create = async (req, res) => {
-  const newProduct = await new Product(req.body);
+  const newProduct = new Product(req.body);
 
   try{
     const savedProduct = await newProduct.save();
