@@ -1,4 +1,3 @@
-const bcrypt = require('bcryptjs');
 const router = require('express').Router();
 
 const { verifyToken, verifyTokenAndAuthorization, verifyTokenAndAdmin } = require('../middleware/verifyToken');
