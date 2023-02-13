@@ -1,6 +1,6 @@
 # ecommerce-app
 
-for to make this project, i'm using [this video](https://www.youtube.com/watch?v=rMiRZ1iRC0A) on youtube.
+for to make this project (api), i'm using [this video](https://www.youtube.com/watch?v=rMiRZ1iRC0A) on youtube.
 
 - [x] - yarn
 - [x] - jwt
