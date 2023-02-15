@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { categories } from '../data';
-import CategoriyItem from './CategoriyItem';
+import CategoriyItem from './CategoryItem';
 
 const Container = styled.div`
   display: flex;
