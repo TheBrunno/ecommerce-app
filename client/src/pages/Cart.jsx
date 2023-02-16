@@ -27,10 +27,13 @@ const TopButton = styled.button`
   border: ${ props => props.type === 'filled' ? 'none' : '1px solid gray' };
   background-color: ${ props => props.type === 'filled' ? 'black' : 'transparent' };
   color: ${ props => props.type === 'filled' && 'white' };
+  transition: box-shadow 0.25s;
+
+  &:hover{
+    box-shadow:  ${ props => props.type === 'filled' ? '0 0 5px 2px rgba(0, 0, 0, .17)' : 'none' };
+  }
 `;
-const TopTexts = styled.div`
-  
-`;
+const TopTexts = styled.div``;
 const TopText = styled.span`
   text-decoration: underline;
   cursor: pointer;
@@ -120,6 +123,13 @@ const Button = styled.button`
   background-color: #000;
   color: #fff;
   font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: box-shadow .25s;
+
+  &:hover{
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, .17);
+  }
 `;
 
 const Cart = () => {
