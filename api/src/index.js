@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
+const cors = require('cors');
 
 const userRoute = require('./routes/user'); 
 const authRoute = require('./routes/auth'); 
@@ -10,6 +11,11 @@ const orderRoute = require('./routes/order');
 
 
 const app = express();
+
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    next();
+});
 
 app.use(express.json());
 app.use('/api/users', userRoute);
