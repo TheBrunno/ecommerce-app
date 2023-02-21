@@ -57,6 +57,7 @@ const Icon = styled.div`
   justify-content: center;
   margin: 10px;
   transition: all 0.5s ease;
+  color: #000;
 
   &:hover{
     background-color: #e9f5f5;

@@ -51,6 +51,8 @@ const Center = styled.div`
 
 const Logo = styled.h1`
   font-weight: bold;
+  color: #000;
+  text-decoration: none;
   ${ mobile({ fontSize: "24px" }) }
 `;
 
@@ -66,6 +68,7 @@ const MenuItem = styled.div`
   font-size: 14px;
   cursor: pointer;
   margin-left: 25px;
+  color: #000;
   ${ mobile({ fontSize : "12px", marginLeft: '10px' }) }
 `;
 
@@ -82,9 +85,11 @@ const Navbar = () => {
           </SerchContainer>
         </Left>
         <Center>
-          <Logo>
-            AURA.
-          </Logo>
+          <Link to="/">
+            <Logo>
+              AURA.
+            </Logo>
+          </Link>
         </Center>
         <Right>
           <MenuItem>REGISTER</MenuItem>
