@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import styled from "styled-components"
-import { popularProducts } from "../data";
 import Product from "./Product";
 
 const Container = styled.div`
@@ -9,10 +8,6 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-`;
-const Title = styled.h1`
-  text-align: center;
-  margin: 20px 0;
 `;
 
 
@@ -58,11 +53,12 @@ const Products = ({ cat, filters, sort }) => {
   return (
     <Container>
       {cat 
-        ? filteredProducts.map(item => <Product item={ item } key={ item.id } />) 
+        ? filteredProducts.map(item => <Product item={ item } key={ item._id } />) 
         : products
           .slice(0, 8)
-          .map(item => <Product item={ item } key={ item.id } />)
+          .map(item => <Product item={ item } key={ item._id } />)
       }
+
     </Container>
   )
 }
