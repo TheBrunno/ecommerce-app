@@ -17,9 +17,9 @@ module.exports.update = async (req, res) => {
       $set: req.body
     }, { new: true });
 
-    return res.status(200).json(updatedOrder);
+    res.status(200).json(updatedOrder);
   }catch(err){
-    return res.status(500).json(err);
+    res.status(500).json(err);
   }
 
 }
@@ -56,13 +56,21 @@ module.exports.index = async (req, res) => {
 }
 
 module.exports.stats = async (req, res) => {
+  const productId = req.query.pid;
   const date = new Date();
-  const lastMonth = new Date(date.setMonth(date.getMonth() -1));
-  const previousMonth = new Date(new Date().setMonth(lastMonth.getMonth() -1));
+  const lastMonth = new Date(date.setMonth(date.getMonth() - 1));
+  const previousMonth = new Date(new Date().setMonth(lastMonth.getMonth() - 1));
 
-  try{
+  try {
     const income = await Order.aggregate([
-      { $match: { createdAt: { $gte: previousMonth } } },
+      {
+        $match: {
+          createdAt: { $gte: previousMonth },
+          ...(productId && {
+            products: { $elemMatch: { productId } },
+          }),
+        },
+      },
       {
         $project: {
           month: { $month: "$createdAt" },
@@ -77,7 +85,7 @@ module.exports.stats = async (req, res) => {
       },
     ]);
     res.status(200).json(income);
-  }catch(err){
+  } catch (err) {
     res.status(500).json(err);
   }
-}
+};
